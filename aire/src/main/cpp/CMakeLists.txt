@@ -35,6 +35,8 @@ set_target_properties(aire libzlibng PROPERTIES IMPORTED_LOCATION ${CMAKE_SOURCE
 add_library(libturbojpeg STATIC IMPORTED)
 set_target_properties(${CMAKE_PROJECT_NAME} libturbojpeg PROPERTIES IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/lib/${ANDROID_ABI}/libturbojpeg.a)
 
+target_link_options(${CMAKE_PROJECT_NAME} PRIVATE "-Wl,-z,max-page-size=16384")
+
 add_definitions(-DHWY_COMPILE_ONLY_STATIC -DJC_VORONOI_IMPLEMENTATION)
 
 set(CMAKE_CXX_STANDARD 20)
